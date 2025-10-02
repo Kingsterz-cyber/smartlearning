@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic AI Education Platform Design System
+All colors MUST be HSL for proper theme compatibility.
+*/
+
+@layer base {
+  :root {
+    /* Core Space Theme Colors */
+    --background: 220 100% 5%;
+    --foreground: 210 100% 95%;
+    
+    /* Deep Space Base (#0B0F1A equivalent in HSL) */
+    --space-deep: 220 45% 8%;
+    --space-medium: 220 35% 12%;
+    --space-light: 220 25% 18%;
+    
+    /* Neon Accent Colors */
+    --neon-blue: 194 100% 64%;     /* #42E8FF */
+    --neon-violet: 269 100% 70%;   /* #A06BFF */
+    --neon-cyan: 180 100% 60%;
+    --neon-pink: 320 100% 70%;
+    
+    /* Glassmorphism Colors */
+    --glass-primary: 220 35% 15% / 0.2;
+    --glass-secondary: 220 25% 20% / 0.15;
+    --glass-accent: 194 100% 64% / 0.1;
+    --glass-border: 220 100% 95% / 0.1;
+    
+    /* Holographic Gradients */
+    --gradient-holographic: linear-gradient(135deg, hsl(194 100% 64% / 0.3), hsl(269 100% 70% / 0.3));
+    --gradient-space: linear-gradient(135deg, hsl(220 45% 8%), hsl(220 35% 12%));
+    --gradient-neon: linear-gradient(90deg, hsl(194 100% 64%), hsl(269 100% 70%));
+    --gradient-card: linear-gradient(135deg, hsl(220 35% 15% / 0.4), hsl(220 25% 18% / 0.2));
+    
+    /* Component Colors */
+    --card: 220 35% 15% / 0.4;
+    --card-foreground: 210 100% 95%;
+    --card-border: 220 100% 95% / 0.1;
+    
+    --primary: 194 100% 64%;
+    --primary-foreground: 220 45% 8%;
+    --primary-glow: 194 100% 64% / 0.3;
+    
+    --secondary: 269 100% 70%;
+    --secondary-foreground: 220 45% 8%;
+    --secondary-glow: 269 100% 70% / 0.3;
+    
+    --accent: 180 100% 60%;
+    --accent-foreground: 220 45% 8%;
+    
+    --muted: 220 25% 18%;
+    --muted-foreground: 210 50% 70%;
+    
+    --border: 220 100% 95% / 0.1;
+    --input: 220 35% 15% / 0.6;
+    --ring: 194 100% 64%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 100% 95%;
+    
+    --popover: 220 35% 15% / 0.95;
+    --popover-foreground: 210 100% 95%;
+    
+    /* Shadows & Effects */
+    --shadow-neon-blue: 0 0 20px hsl(194 100% 64% / 0.5);
+    --shadow-neon-violet: 0 0 20px hsl(269 100% 70% / 0.5);
+    --shadow-glass: 0 8px 32px hsl(220 45% 8% / 0.8);
+    --shadow-holographic: 0 0 40px hsl(194 100% 64% / 0.2), 0 0 80px hsl(269 100% 70% / 0.1);
+    
+    /* Blur Effects */
+    --blur-glass: 12px;
+    --blur-heavy: 20px;
+    
+    --radius: 12px;
+  }
+}
+
+      @layer base {
+        * {
+          @apply border-border;
+        }
+
+        body {
+          @apply bg-background text-foreground;
+          font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+        }
+
+        /* Global glassmorphism utility classes */
+        .glass-panel {
+          @apply bg-glass-primary backdrop-blur-glass border border-glass-border;
+        }
+
+        .glass-hover {
+          @apply hover:bg-glass-secondary hover:border-neon-blue/30 transition-all duration-300;
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+          @apply bg-space-medium;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          @apply bg-neon-blue/30 rounded-full;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          @apply bg-neon-blue/50;
+        }
+
+        /* Smooth focus transitions */
+        *:focus-visible {
+          @apply outline-none ring-2 ring-neon-blue/50 ring-offset-2 ring-offset-space-deep;
+        }
+
+        /* Futuristic scrollbar styles */
+        .scrollbar-futuristic {
+          scrollbar-width: thin;
+          scrollbar-color: hsl(var(--neon-blue)) hsl(var(--glass-border));
+        }
+
+        .scrollbar-futuristic::-webkit-scrollbar {
+          width: var(--scrollbar-width);
+        }
+
+        .scrollbar-futuristic::-webkit-scrollbar-track {
+          background: hsl(var(--glass-border));
+          border-radius: 4px;
+        }
+
+        .scrollbar-futuristic::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, hsl(var(--neon-blue)), hsl(var(--neon-violet)));
+          border-radius: 4px;
+          border: 1px solid hsl(var(--glass-border));
+        }
+
+        .scrollbar-futuristic::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, hsl(var(--neon-violet)), hsl(var(--neon-cyan)));
+          box-shadow: 0 0 8px hsl(var(--neon-blue) / 0.5);
+        }
+
+        .scrollbar-futuristic::-webkit-scrollbar-corner {
+          background: hsl(var(--glass-border));
+        }
+      }
